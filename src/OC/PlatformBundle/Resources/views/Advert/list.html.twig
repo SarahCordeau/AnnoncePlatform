@@ -1,0 +1,26 @@
+{# src/OC/PlatformBundle/Resources/views/Advert/list.html.twig #}
+
+{% block stylesheets %}
+{#    {{ parent() }}#}
+    
+    <style>
+        .list { padding: 10px; }
+        .odd { background-color: rgba(255, 69, 0, 0.3); }
+        .even { background-color: rgba(0,186,255, 0.3); }
+    </style>
+{% endblock %}
+    
+{% for advert in listAdverts %}
+
+    <div class="list {{ cycle(['odd', 'even'], loop.index0) }}">
+        <h3>{{ advert.title }}</h3>
+        <i>Par {{ advert.author }}, le {{ advert.date|date('d/m/Y') }}</i>
+
+        <div class="well">
+            {{ advert.content }}
+        </div>
+    </div>
+        
+    <hr>
+{% endfor %}
+

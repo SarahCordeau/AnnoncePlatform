@@ -10,8 +10,9 @@ use Symfony\Component\HttpFoundation\Request;
 
 class CoreController extends Controller
 {
-    public function indexAction($page)
+    public function indexAction()
     {
+        
         return $this->render('OCCoreBundle:Core:home.html.twig');
     }
     

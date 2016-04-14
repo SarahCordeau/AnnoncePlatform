@@ -1,36 +1,35 @@
 {# src\OC\CoreBundle\Resources\views\Core\home.html.twig #}
 
-{% extends "OCCoreBundle:Core:index.html.twig" %}
+{% extends "OCCoreBundle::base.html.twig" %}
 
 {% block title %} 
     {{ parent() }} | Home 
 {% endblock %}
 
-{% block core_index_body %}
-
-    <div class="row text-center">
-        <a class="btn btn-primary btn-lg" href="{{ path('oc_platform_home') }}">Accéder aux annonces </a>
-        <a class="btn btn-primary btn-lg" href="{{ path('oc_core_login') }}">Accéder au forum </a>
-        <a class="btn btn-primary btn-lg" href="{{ path('oc_core_contact') }}">Nous contacter </a>
-    </div>
-
-    <hr>
-
+{% block core_body %}
     <div class="row">
-        <p>
-            {# On affiche tous les messages flash dont le nom est « info » #}
-            {% for message in app.session.flashbag.get('info') %}
+
+        <h1> Bienvenue sur ma plateforme </h1>
+
+        <hr>
+
+        <div class="row">
+            <p>
+                {# On affiche tous les messages flash dont le nom est « info » #}
+                {% for message in app.session.flashbag.get('info') %}
                 <p  class="alert alert-warning">
                     <strong>Warning!</strong> Message flash : {{ message }}
                 </p>
             {% endfor %}
-        </p>
-    </div>
-    
-    <div class="row">
-        <h2>Dernières annonces</h2>
-        
-        {{ render(controller("OCPlatformBundle:Advert:list")) }}
+            </p>
+        </div>
+
+        <div class="row">
+            <h2>Dernières annonces</h2>
+
+            {{ render(controller("OCPlatformBundle:Advert:list", {'limit': 10})) }}
+
+        </div>
     </div>
 
 {% endblock %}

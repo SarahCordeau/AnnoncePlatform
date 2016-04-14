@@ -1,0 +1,51 @@
+{# src/OC/PlatformBundle/Resources/views/Advert/home.html.twig #}
+
+{% extends "OCPlatformBundle::advert-layout.html.twig" %}
+
+{% block title %}
+    {{ parent() }} | Annonces
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <style>
+
+        .list { padding: 10px; }
+
+    </style>
+{% endblock %}
+
+{% block advert_body %}
+
+    <h2>Liste des annonces</h2>
+
+    {% for advert in listAdverts %}
+
+
+        <div class="list {{ cycle(['odd', 'even'], loop.index0) }}">
+            <a href="{{ path('oc_platform_view', {'id': advert.id}) }}">
+                <h3>{{ advert.title }}</h3>
+            </a>
+
+            <i>Par {{ advert.author }}, le {{ advert.date|date('d/m/Y') }}</i>
+
+            <div class="well">
+                {{ advert.content }}
+            </div>
+        </div>
+
+        {% if not loop.last %} <hr> {% endif %}
+
+    {% endfor %}
+
+    <ul class="pagination">
+        {# On utilise la fonction range(a, b) qui crée un tableau de valeurs entre a et b #}
+        {% for p in range(1, nbPages) %}
+            <li{% if p == page %} class="active"{% endif %}>
+                <a href="{{ path('oc_platform_home', {'page': p}) }}">{{ p }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

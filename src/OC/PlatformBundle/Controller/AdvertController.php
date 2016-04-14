@@ -93,9 +93,9 @@ class AdvertController extends Controller {
 //
 //        // Création de l'entité Advert
 //        $advert = new Advert();
-//        $advert->setTitle('Offre de stage webdesigner.');
-//        $advert->setAuthor('Mathieu');
-//        $advert->setContent("Nous proposons un poste pour webdesigner. Blabla…");
+//        $advert->setTitle('Formateur Web-développement.');
+//        $advert->setAuthor('Sarah');
+//        $advert->setContent("L'école Simplon.co de Boulogne sur Mer recherche un formateur expérimenté.");
 //
 //        // On récupère toutes les compétences possibles
 //        $listSkills = $em->getRepository('OCPlatformBundle:Skill')->findAll();

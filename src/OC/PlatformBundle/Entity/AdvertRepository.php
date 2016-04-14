@@ -10,17 +10,6 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
 
 class AdvertRepository extends EntityRepository {
 
-//    public function getAdvertByDate($limit) {
-//        $qb = $this->createQueryBuilder('a');
-//
-//        // Puis on ne retourne que $limit résultats
-//        $qb->setMaxResults($limit)->orderBy('a.date', 'DESC');
-//
-//        // Enfin, on retourne le résultat
-//        return $qb
-//                ->getQuery()
-//                ->getResult();
-//    }
 
     public function getAdverts($page, $nbPerPage) {
         $q = $this->createQueryBuilder('a')
@@ -33,7 +22,6 @@ class AdvertRepository extends EntityRepository {
             ->orderBy('a.date', 'DESC')
             ->getQuery();
 
-//        return $q->getResult();
         // Permet de faire une pagination
         $q
             // On définit l'annonce à partir de laquelle commencer la liste

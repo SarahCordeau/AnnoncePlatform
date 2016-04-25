@@ -7,7 +7,7 @@ namespace OC\PlatformBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="OC\PlatformBundle\Entity\ImageRepository")
+ * @ORM\Entity(repositoryClass="OC\PlatformBundle\Repository\ImageRepository")
  */
 class Image {
 

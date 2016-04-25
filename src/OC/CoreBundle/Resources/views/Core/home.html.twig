@@ -17,6 +17,14 @@
             <p>
                 {# On affiche tous les messages flash dont le nom est « info » #}
                 {% for message in app.session.flashbag.get('info') %}
+                <p  class="alert alert-info">
+                    <strong>Info!</strong> Message flash : {{ message }}
+                </p>
+            {% endfor %}
+            </p>
+            <p>
+                {# On affiche tous les messages flash dont le nom est « info » #}
+                {% for message in app.session.flashbag.get('warning') %}
                 <p  class="alert alert-warning">
                     <strong>Warning!</strong> Message flash : {{ message }}
                 </p>

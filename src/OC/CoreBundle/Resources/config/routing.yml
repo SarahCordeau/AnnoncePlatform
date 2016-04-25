@@ -9,3 +9,7 @@ oc_core_contact:
 oc_core_login:
     path: /login
     defaults: {_controller: OCCoreBundle:Core:login }
+    
+oc_core_post:
+    path: /post
+    defaults: {_controller: OCCoreBundle:Core:post }
